@@ -154,4 +154,13 @@ ggplot(allData, aes(x = hmsTime,
   facet_grid(rows = vars(location), cols = vars(pmType))
 ```
 
+```{r}
+#comparing Clinton vs Woodstock 
+byLocation_stats <- allData %>%
+  group_by(set, pmType) %>%
+  summarize(pm_mean = mean(pmValues),
+            pm_sd = sd(pmValues))
+  
+byLocation_stats
+```
 

@@ -208,7 +208,7 @@ ggplot(data = allData, mapping = aes(x = pmType,
                                      y = pmValues, 
                                      color = set)) + 
   geom_boxplot() + 
-  stat_summary(fun = mean, geom = "point") + 
+  stat_summary(fun = mean, geom = "point", inherit.aes = TRUE) + 
   scale_color_brewer(name = "Location", type = "qual", palette = 1) +
   theme_bw() +
   labs(title = "Particulate Matter Measurements at Clinton and Woodstock",

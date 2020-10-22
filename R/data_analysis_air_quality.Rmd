@@ -193,13 +193,27 @@ t.test(pm10_clinton$pmValues, pm10_woodstock$pmValues,
 ```{r}
 #some visualizations
 ggplot(data = allData, mapping = aes(x = set,
-                                     y= pmValues, 
+                                     y = pmValues, 
                                      color = pmType)) + 
   geom_boxplot() + 
+  stat_summary(fun = mean, geom = "point") + 
   scale_color_brewer(name = "PM Type", type = "qual", palette = 7) +
   theme_bw() +
-  labs(title = "PM Measurements at Clinton and Woodstock",
+  labs(title = "Particulate Matter Measurements at Clinton and Woodstock",
        y = "PM measurements",
        x = "Location")
 ```
+```{r}
+ggplot(data = allData, mapping = aes(x = pmType,
+                                     y = pmValues, 
+                                     color = set)) + 
+  geom_boxplot() + 
+  stat_summary(fun = mean, geom = "point") + 
+  scale_color_brewer(name = "Location", type = "qual", palette = 1) +
+  theme_bw() +
+  labs(title = "Particulate Matter Measurements at Clinton and Woodstock",
+       y = "PM measurements",
+       x = "PM type")
+```
+
 

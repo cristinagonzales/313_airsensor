@@ -190,4 +190,16 @@ t.test(pm10_clinton$pmValues, pm10_woodstock$pmValues,
        mu = 0, paired = FALSE, var.equal = TRUE)
 ```
 
+```{r}
+#some visualizations
+ggplot(data = allData, mapping = aes(x = set,
+                                     y= pmValues, 
+                                     color = pmType)) + 
+  geom_boxplot() + 
+  scale_color_brewer(name = "PM Type", type = "qual", palette = 7) +
+  theme_bw() +
+  labs(title = "PM Measurements at Clinton and Woodstock",
+       y = "PM measurements",
+       x = "Location")
+```
 

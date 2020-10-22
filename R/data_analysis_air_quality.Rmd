@@ -164,3 +164,30 @@ byLocation_stats <- allData %>%
 byLocation_stats
 ```
 
+```{r}
+#f test for pm 01
+pm01_clinton <- filter(allData, pmType == "pm01" & set == "Clinton")
+pm01_woodstock <- filter(allData, pmType == "pm01" & set == "Woodstock") 
+var.test(pm01_clinton$pmValues, pm01_woodstock$pmValues)
+#f test for pm2.5
+pm25_clinton <- filter(allData, pmType == "pm25" & set == "Clinton")
+pm25_woodstock <- filter(allData, pmType == "pm25" & set == "Woodstock") 
+var.test(pm25_clinton$pmValues, pm25_woodstock$pmValues)
+#f test for pm 10
+pm10_clinton <- filter(allData, pmType == "pm10" & set == "Clinton") 
+pm10_woodstock <- filter(allData, pmType == "pm10" & set == "Woodstock") 
+var.test(pm10_clinton$pmValues, pm10_woodstock$pmValues)
+```
+```{r}
+#t test for pm01
+t.test(pm01_clinton$pmValues, pm01_woodstock$pmValues, 
+       mu = 0, paired = FALSE, var.equal = TRUE)
+#t test for pm25
+t.test(pm25_clinton$pmValues, pm25_woodstock$pmValues, 
+       mu = 0, paired = FALSE, var.equal = TRUE)
+#t test for pm10
+t.test(pm10_clinton$pmValues, pm10_woodstock$pmValues, 
+       mu = 0, paired = FALSE, var.equal = TRUE)
+```
+
+

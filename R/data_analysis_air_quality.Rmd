@@ -192,6 +192,7 @@ t.test(pm10_clinton$pmValues, pm10_woodstock$pmValues,
 
 ```{r}
 #some visualizations
+ylab <- expression(Measurement~(μg~m^{-3}))
 ggplot(data = allData, mapping = aes(x = set,
                                      y = pmValues, 
                                      color = pmType)) + 
@@ -200,7 +201,7 @@ ggplot(data = allData, mapping = aes(x = set,
   scale_color_brewer(name = "PM Type", type = "qual", palette = 7) +
   theme_bw() +
   labs(title = "Particulate Matter Measurements at Clinton and Woodstock",
-       y = "PM measurements",
+       y = ylab,
        x = "Location")
 ```
 ```{r}
@@ -212,7 +213,7 @@ ggplot(data = allData, mapping = aes(x = pmType,
   scale_color_brewer(name = "Location", type = "qual", palette = 1) +
   theme_bw() +
   labs(title = "Particulate Matter Measurements at Clinton and Woodstock",
-       y = "PM measurements",
+       y = ylab,
        x = "PM type")
 ```
 
